@@ -1,4 +1,6 @@
 #!/bin/bash
 for ocamlfile in *.ml; do
-	/usr/bin/ocaml $ocamlfile
+        executable=${ocamlfile%.ml}
+	ocamlopt -o $executable $ocamlfile
+	./$executable
 done
